@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom global styles */
+html,
+*{
+  padding: 0;
+  margin: 0; 
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* Custom styles for charts */
+.recharts-default-tooltip {
+  background-color: #374151 !important;
+  border: 1px solid #4b5563 !important;
+  border-radius: 4px;
+}
+
+/* Custom animation for status cards */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.status-card {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Custom styles for alarm list */
+.alarm-item {
+  @apply border-b border-gray-700 py-2 last:border-b-0;
+}
+
+/* Custom styles for machine status */
+.machine-status-bar {
+  @apply w-full bg-gray-700 rounded-full h-2.5 mt-2 overflow-hidden;
+}
+
+.machine-status-progress {
+  @apply bg-green-600 h-full rounded-full transition-all duration-500 ease-in-out;
+}
+
+.scrollbar-thumb-scrollbar-thumb::-webkit-scrollbar-thumb {
+  background-color: #454445;
+}
+
+.scrollbar-track-scrollbar-track::-webkit-scrollbar-track {
+  background-color: #333332;
+}

@@ -1,20 +1,29 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
+import scrollbar from 'tailwind-scrollbar';
 
+/** @type {Config} */
 const config: Config = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        'navbar-bg': '#2b2a2a',
+        'icon-default': '#5a5b5a',
+        'icon-hover': '#dadada',
+        'label-color-growth': '#497b54',
+        'label-color-loss': '#994144',
+        'custom-bg': '#323233',
+        'scrollbar-thumb': '#454445', // Custom scrollbar thumb color
+        'scrollbar-track': '#333332', // Custom scrollbar track color
       },
     },
   },
-  plugins: [],
+  plugins: [
+    scrollbar({}), // Pass an empty object or configuration options if needed
+  ],
 };
+
 export default config;
