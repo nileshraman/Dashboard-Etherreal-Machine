@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -28,6 +28,16 @@ interface LineChartProps {
 }
 
 const LineChart: React.FC<LineChartProps> = ({ data, labels }) => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const chartData = {
     labels: labels,
     datasets: [
@@ -72,8 +82,12 @@ const LineChart: React.FC<LineChartProps> = ({ data, labels }) => {
   };
 
   return (
-    <div className="bg-navbar-bg rounded-lg p-4 transition-transform transform hover:scale-105">
-      <Line data={chartData} options={options} />
+    <div className={`bg-navbar-bg rounded-lg p-4 transition-transform transform hover:scale-105 ${isLoading ? 'animate-custom-bounce' : ''}`}>
+      {isLoading ? (
+        <div className="h-48 bg-[#151414] rounded"></div>
+      ) : (
+        <Line data={chartData} options={options} />
+      )}
     </div>
   );
 };

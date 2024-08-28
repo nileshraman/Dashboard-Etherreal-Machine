@@ -39,7 +39,7 @@ function SidebarItem({ icon, label, alwaysWhite }: SidebarItemProps) {
   return (
     <div className="relative flex items-center justify-center w-12 h-12 group cursor-pointer">
       <div
-        className={`text-xl ${alwaysWhite ? 'text-white' : 'text-icon-default'} group-hover:text-icon-hover transition-colors duration-300`}
+        className={`text-xl ${alwaysWhite ? 'text-[#f74242]' : 'text-icon-default'} group-hover:text-icon-hover transition-colors duration-300`}
       >
         {icon}
       </div>
